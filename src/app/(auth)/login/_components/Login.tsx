@@ -46,16 +46,14 @@ export default function Login() {
 
   useEffect(() => {
     if (loginState.status === "error") {
-      toast.error('login failed', {
+      toast.error("login failed", {
         description: loginState.errors._form?.[0],
-      })
+      });
       startTransition(() => {
         loginAction(null);
       });
     }
   }, [loginState]);
-
-  console.log("Login State:", loginState);
 
   return (
     <Card>
@@ -83,7 +81,9 @@ export default function Login() {
               type="password"
             />
 
-            <Button type="submit">{isPendingLogin ? <Loader2 className="animate-spin"/> : "Login"}</Button>
+            <Button type="submit">
+              {isPendingLogin ? <Loader2 className="animate-spin" /> : "Login"}
+            </Button>
           </form>
         </Form>
       </CardContent>
